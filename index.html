@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogue & Valor | Urban Apparel</title>
+    
+    <style>
+        /* CSS STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-btn {
+            padding: 12px 30px;
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* Product Grid */
+        .products {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            border: 1px solid #eee;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .img-placeholder {
+            height: 200px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: #888;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background: #333;
+            color: white;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">V&V</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Style</h1>
+            <p>Discover the new Spring Collection 2026.</p>
+            <button class="cta-btn">Shop Now</button>
+        </div>
+    </header>
+
+    <section class="products">
+        <h2>Featured Collection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="img-placeholder">Summer Tee</div>
+                <h3>Essential White Tee</h3>
+                <p>$25.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="img-placeholder">Denim Jacket</div>
+                <h3>Classic Denim</h3>
+                <p>$85.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="img-placeholder">Cargo Pants</div>
+                <h3>Urban Cargo</h3>
+                <p>$60.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let count = 0;
+        const cartCountDisplay = document.getElementById('cart-count');
+        const buttons = document.querySelectorAll('.add-to-cart');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                count++;
+                cartCountDisplay.innerText = count;
+                
+                // Visual feedback
+                button.innerText = "Added!";
+                button.style.backgroundColor = "#27ae60";
+                
+                setTimeout(() => {
+                    button.innerText = "Add to Cart";
+                    button.style.backgroundColor = "#333";
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
